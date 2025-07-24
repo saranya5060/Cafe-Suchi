@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe Home</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap');
+        body {
+            background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .menu-title {
+            color: #8d5524;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
+        }
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .menu-card {
+            background: linear-gradient(135deg, #ffd6e0 0%, #fcbad3 100%);
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 22px 18px 16px 18px;
+            width: 220px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #b3477a;
+        }
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 32px #fcbad3;
+        }
+        .menu-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .item-name {
+            font-weight: bold;
+            color: #b3477a;
+            margin-bottom: 4px;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+        }
+        .item-price {
+            color: #fff;
+            background: #b3477a;
+            display: inline-block;
+            padding: 7px 20px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 6px;
+            box-shadow: 0 2px 8px #fcbad3;
+        }
+        .center-container {
+            background: rgba(255,255,255,0.92);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 40px 40px 40px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        }
+        .highlight-title {
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+            padding: 22px 0 18px 0;
+            border-radius: 22px;
+            box-shadow: 0 4px 18px #ffb6b9;
+            font-size: 2.7rem;
+            letter-spacing: 2.5px;
+            margin-bottom: 38px;
+            text-shadow: 2px 4px 16px #b34700, 0 1px 0 #fff3e0;
+            text-align: center;
+        }
+        .menu-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+        .category-card {
+            background: linear-gradient(135deg, #ffd6e0 0%, #fcbad3 100%);
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+            padding: 36px 44px;
+            font-size: 1.7rem;
+            color: #b3477a;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            text-align: center;
+            min-width: 200px;
+            border: 2px solid #fcbad3;
+            letter-spacing: 1.2px;
+            text-decoration: none;
+        }
+        .category-card:hover, .category-card.active {
+            background: linear-gradient(135deg, #fcbad3 0%, #ffd6e0 100%);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 32px #fcbad3;
+            color: #fff;
+            border-color: #b3477a;
+        }
+        .items-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .items-section.active {
+            display: block;
+        }
+        .items-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .info-text {
+            text-align: center;
+            color: #b3477a;
+            font-size: 1.25rem;
+            margin-top: 44px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            letter-spacing: 1px;
+        }
+        .about-cafe {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #fff;
+            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+            border-radius: 18px;
+            padding: 28px 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 12px #ffb6b9;
+        }
+        .about-cafe h3 {
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .about-cafe p {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryCards = document.querySelectorAll('.category-card');
+            const sections = document.querySelectorAll('.items-section');
+            categoryCards.forEach((card, idx) => {
+                card.addEventListener('click', function() {
+                    categoryCards.forEach(c => c.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    card.classList.add('active');
+                    sections[idx].classList.add('active');
+                });
+            });
+            // Show first section by default
+            if (categoryCards.length && sections.length) {
+                categoryCards[0].classList.add('active');
+                sections[0].classList.add('active');
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="center-container">
+        <h2 class="highlight-title">Welcome to the Cafe SuChi!</h2>
+        <div class="menu-categories">
+            <a class="category-card" href="/pizzas.html">Pizzas</a>
+            <a class="category-card" href="/pasta.html">Pasta</a>
+            <a class="category-card" href="/burgers.html">Burgers</a>
+            <a class="category-card" href="/coffee.html">Coffee</a>
+            <a class="category-card" href="/thickshakes.html">Thickshakes</a>
+        </div>
+        <div style="text-align:center; margin-bottom:32px;">
+            <a href="/review.html" style="display:inline-block; margin-top:10px; background:linear-gradient(90deg,#ff512f 0%,#dd2476 100%); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:1.2rem; padding:14px 38px; border-radius:16px; box-shadow:0 2px 12px #fcbad3; text-decoration:none; letter-spacing:1px; transition:background 0.2s,transform 0.2s;">Read &amp; Write Reviews</a>
+        </div>
+        <div class="info-text">Click a section above to view the menu items!</div>
+        <div class="about-cafe">
+            <h3>About Cafe SuChi</h3>
+            <p>Cafe SuChi is your cozy neighborhood destination for delicious food and great vibes! We blend classic cafe favorites with a modern twist, offering everything from wood-fired pizzas and creamy pastas to gourmet burgers, aromatic coffees, and indulgent thickshakes. Our warm, inviting atmosphere is perfect for relaxing with friends, studying, or enjoying a family meal. Every dish is crafted with love and the freshest ingredients. Come experience the taste and comfort of Cafe SuChi!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe SuChi Reviews</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #ff512f 0%, #dd2476 100%);
+            min-height: 100vh;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .center-container {
+            background: rgba(255,255,255,0.97);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(221,36,118,0.18);
+            padding: 48px 38px 36px 38px;
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        h2 {
+            font-family: 'Pacifico', cursive;
+            color: #dd2476;
+            font-size: 2.2rem;
+            margin-bottom: 28px;
+            letter-spacing: 1.5px;
+        }
+        .review-list {
+            margin-bottom: 32px;
+        }
+        .review {
+            background: linear-gradient(135deg, #ffd6e0 0%, #fcbad3 100%);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px #fcbad3;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        .review .author {
+            font-weight: bold;
+            color: #b3477a;
+            margin-bottom: 4px;
+        }
+        .review .date {
+            color: #b3477a;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .review .text {
+            color: #7a2f4d;
+            font-size: 1.08rem;
+        }
+        form {
+            margin-top: 24px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 70px;
+            border-radius: 10px;
+            border: 1.5px solid #fcbad3;
+            padding: 10px;
+            font-size: 1.08rem;
+            background: #fff6fa;
+            color: #b3477a;
+            margin-bottom: 14px;
+            resize: vertical;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1.5px solid #fcbad3;
+            font-size: 1.08rem;
+            background: #fff6fa;
+            color: #b3477a;
+            margin-bottom: 14px;
+        }
+        button[type="submit"] {
+            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 32px;
+            font-size: 1.08rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 12px #fcbad3;
+            transition: background 0.2s, transform 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #dd2476;
+            font-weight: 600;
+            text-decoration: underline;
+            font-size: 1.08rem;
+        }
+        .back-link:hover {
+            color: #ff512f;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <a class="back-link" href="/home.html">&larr; Back to Home</a>
+        <h2>Customer Reviews</h2>
+        <div class="review-list">
+            <div class="review">
+                <div class="author">Aarav S.</div>
+                <div class="date">July 2025</div>
+                <div class="text">Absolutely loved the wood-fired pizzas and the cozy vibe. Will visit again!</div>
+            </div>
+            <div class="review">
+                <div class="author">Priya M.</div>
+                <div class="date">July 2025</div>
+                <div class="text">The thickshakes are heavenly and the staff is super friendly. Highly recommended!</div>
+            </div>
+            <div class="review">
+                <div class="author">Rahul K.</div>
+                <div class="date">June 2025</div>
+                <div class="text">Perfect place to hang out with friends. The coffee and burgers are top notch!</div>
+            </div>
+        </div>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <textarea placeholder="Write your review..." required></textarea>
+            <button type="submit" disabled>Submit Review (Demo Only)</button>
+        </form>
+    </div>
+</body>
+</html>

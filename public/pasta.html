@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pasta Menu</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #fffbe6 0%, #ffe0b2 100%);
+        }
+        .center-container {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 32px rgba(211, 84, 0, 0.13);
+            border-radius: 22px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 56px 32px 32px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .pasta-hero {
+            display: block;
+            margin: 0 auto 32px auto;
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #ffe0b2;
+            border: 6px solid #fff3e0;
+        }
+        .pasta-graphic {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            opacity: 0.13;
+            z-index: 0;
+        }
+        .menu-title {
+            color: #b9770e;
+            font-size: 2.5rem;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+            text-shadow: 1px 2px 8px #fff3e0;
+            z-index: 1;
+            position: relative;
+        }
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            z-index: 1;
+            position: relative;
+        }
+        .menu-card {
+            background: linear-gradient(135deg, #fffbe6 60%, #ffe0b2 100%);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px #ffe0b2;
+            padding: 28px 18px 18px 18px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid #ffe0b2;
+        }
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 32px #ffe0b2;
+            border-color: #ffb366;
+        }
+        .item-name {
+            font-weight: bold;
+            color: #b9770e;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+        }
+        .item-price {
+            color: #fff;
+            background: #b9770e;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 6px;
+            box-shadow: 0 2px 8px #ffd6a0;
+        }
+        a[style*="Back to Home"] {
+            font-size: 1.1rem;
+            background: #fff3e0;
+            padding: 6px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px #ffd6a0;
+            transition: background 0.2s;
+        }
+        a[style*="Back to Home"]:hover {
+            background: #ffd6a0;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <img class="pasta-graphic" src="https://www.svgrepo.com/show/522999/pasta.svg" alt="Pasta Graphic">
+        <a href="/home.html" style="float:right; color:#8d5524;">&larr; Back to Home</a>
+        <h2 class="menu-title">Pasta</h2>
+        <img class="pasta-hero" src="https://media.istockphoto.com/id/857927726/photo/pasta-with-meat-tomato-sauce-and-vegetables.jpg?s=612x612&w=0&k=20&c=1bcoXcBKM7Hb1ASweDx-vcwXEgy-WrCGM71dVP2Cp0w=">
+        <div class="menu-grid">
+            <div class="menu-card"><div class="item-name">White Sauce Pasta</div><div class="item-price">₹140</div></div>
+            <div class="menu-card"><div class="item-name">Red Sauce Pasta</div><div class="item-price">₹140</div></div>
+            <div class="menu-card"><div class="item-name">Arrabiata Pasta</div><div class="item-price">₹150</div></div>
+            <div class="menu-card"><div class="item-name">Pesto Pasta</div><div class="item-price">₹160</div></div>
+            <div class="menu-card"><div class="item-name">Cheese Pasta</div><div class="item-price">₹155</div></div>
+            <div class="menu-card"><div class="item-name">Veggie Pasta</div><div class="item-price">₹145</div></div>
+            <div class="menu-card"><div class="item-name">Chicken Pasta</div><div class="item-price">₹170</div></div>
+            <div class="menu-card"><div class="item-name">Mushroom Pasta</div><div class="item-price">₹150</div></div>
+            <div class="menu-card"><div class="item-name">Spinach Pasta</div><div class="item-price">₹140</div></div>
+            <div class="menu-card"><div class="item-name">Corn Pasta</div><div class="item-price">₹135</div></div>
+        </div>
+    </div>
+</body>
+</html>

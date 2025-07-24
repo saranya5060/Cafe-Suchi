@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thickshakes Menu</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #fffbe6 0%, #ffe0b2 100%);
+        }
+        .center-container {
+            background: rgba(255, 245, 230, 0.95);
+            box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+            border-radius: 18px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 48px 32px 32px 32px;
+        }
+        .menu-title {
+            color: #8d5524;
+            font-size: 2.5rem;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+            text-shadow: 1px 2px 8px #fff3e0;
+        }
+        .thickshake-hero {
+            display: block;
+            margin: 0 auto 32px auto;
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(141,85,36,0.18);
+            border: 6px solid #fff3e0;
+        }
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .menu-card {
+            background: linear-gradient(135deg, #fff3e0 60%, #ffe0b2 100%);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(141,85,36,0.10);
+            padding: 28px 18px 18px 18px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid #ffe0b2;
+        }
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 32px rgba(141,85,36,0.18);
+            border-color: #ffb366;
+        }
+        .item-name {
+            font-weight: bold;
+            color: #8d5524;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+        }
+        .item-price {
+            color: #fff;
+            background: #8d5524;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 6px;
+            box-shadow: 0 2px 8px #ffd6a0;
+        }
+        a[style*="Back to Home"] {
+            font-size: 1.1rem;
+            background: #fff3e0;
+            padding: 6px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px #ffd6a0;
+            transition: background 0.2s;
+        }
+        a[style*="Back to Home"]:hover {
+            background: #ffd6a0;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <a href="/home.html" style="float:right; color:#8d5524;">&larr; Back to Home</a>
+        <h2 class="menu-title">Thickshakes</h2>
+        <img class="thickshake-hero" src="https://i.pinimg.com/736x/07/53/a9/0753a96127562990213749b7d24eb4fd.jpg">
+        <div class="menu-grid">
+            <div class="menu-card"><div class="item-name">Chocolate Thickshake</div><div class="item-price">₹130</div></div>
+            <div class="menu-card"><div class="item-name">Strawberry Thickshake</div><div class="item-price">₹130</div></div>
+            <div class="menu-card"><div class="item-name">Vanilla Thickshake</div><div class="item-price">₹120</div></div>
+            <div class="menu-card"><div class="item-name">Oreo Thickshake</div><div class="item-price">₹140</div></div>
+            <div class="menu-card"><div class="item-name">Mango Thickshake</div><div class="item-price">₹135</div></div>
+            <div class="menu-card"><div class="item-name">Butterscotch Thickshake</div><div class="item-price">₹135</div></div>
+            <div class="menu-card"><div class="item-name">KitKat Thickshake</div><div class="item-price">₹145</div></div>
+            <div class="menu-card"><div class="item-name">Coffee Thickshake</div><div class="item-price">₹140</div></div>
+            <div class="menu-card"><div class="item-name">Caramel Thickshake</div><div class="item-price">₹140</div></div>
+            <div class="menu-card"><div class="item-name">Blueberry Thickshake</div><div class="item-price">₹150</div></div>
+        </div>
+    </div>
+</body>
+</html>

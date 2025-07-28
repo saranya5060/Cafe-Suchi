@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout - Cafe SuChi</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logout-container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #ffe0c2;
+            padding: 48px 40px;
+            text-align: center;
+        }
+        .logout-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff6f3c;
+            margin-bottom: 18px;
+        }
+        .logout-msg {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 24px;
+        }
+        .logout-btn {
+            background: linear-gradient(90deg, #ffb347 0%, #ff6f3c 100%);
+            color: #fff;
+            border: none;
+            border-radius: 18px;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #ffd6a0;
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+            outline: none;
+            letter-spacing: 1px;
+        }
+        .logout-btn:hover {
+            background: linear-gradient(90deg, #ff6f3c 0%, #ffb347 100%);
+            color: #fff;
+            transform: translateY(-2px) scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <div class="logout-title">You have been logged out</div>
+        <div class="logout-msg">Thank you for visiting Cafe SuChi.<br>We hope to see you again soon!</div>
+        <button class="logout-btn" onclick="window.location.href='/login.html'">Go to Login</button>
+    </div>
+    <script>
+        // Optionally clear localStorage or sessionStorage if needed
+        localStorage.clear();
+    </script>
+</body>
+</html>

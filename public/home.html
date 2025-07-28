@@ -4,203 +4,413 @@
     <title>Cafe Home</title>
     <link rel="stylesheet" href="/style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap');
-        body {
-            background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            font-family: 'Montserrat', Arial, sans-serif;
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px 0 40px;
+            background: #fff;
         }
-        .menu-section {
-            margin-bottom: 40px;
-        }
-        .menu-title {
-            color: #8d5524;
-            margin-bottom: 10px;
-            font-size: 2rem;
+        .logo-title {
+            font-size: 2.2rem;
             font-family: 'Montserrat', Arial, sans-serif;
             font-weight: 700;
+            color: #ff6f3c;
+            letter-spacing: 2px;
+            line-height: 1.1;
         }
-        .menu-grid {
+        .header-right {
             display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            justify-content: center;
+            gap: 24px;
         }
-        .menu-card {
-            background: linear-gradient(135deg, #ffd6e0 0%, #fcbad3 100%);
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            padding: 22px 18px 16px 18px;
-            width: 220px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-family: 'Montserrat', Arial, sans-serif;
-            color: #b3477a;
-        }
-        .menu-card:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 8px 32px #fcbad3;
-        }
-        .menu-card img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        .item-name {
-            font-weight: bold;
-            color: #b3477a;
-            margin-bottom: 4px;
-            font-size: 1.15rem;
-            letter-spacing: 1px;
-        }
-        .item-price {
+        .header-btn {
+            background: linear-gradient(90deg, #ffb347 0%, #ff6f3c 100%);
             color: #fff;
-            background: #b3477a;
-            display: inline-block;
-            padding: 7px 20px;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-top: 6px;
-            box-shadow: 0 2px 8px #fcbad3;
-        }
-        .center-container {
-            background: rgba(255,255,255,0.92);
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 48px 40px 40px 40px;
-            border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-        }
-        .highlight-title {
-            font-family: 'Pacifico', cursive;
-            color: #fff;
-            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
-            padding: 22px 0 18px 0;
-            border-radius: 22px;
-            box-shadow: 0 4px 18px #ffb6b9;
-            font-size: 2.7rem;
-            letter-spacing: 2.5px;
-            margin-bottom: 38px;
-            text-shadow: 2px 4px 16px #b34700, 0 1px 0 #fff3e0;
-            text-align: center;
-        }
-        .menu-categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 36px;
-            justify-content: center;
-            margin-bottom: 48px;
-        }
-        .category-card {
-            background: linear-gradient(135deg, #ffd6e0 0%, #fcbad3 100%);
+            border: none;
             border-radius: 18px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.13);
-            padding: 36px 44px;
-            font-size: 1.7rem;
-            color: #b3477a;
-            font-family: 'Montserrat', Arial, sans-serif;
+            padding: 14px 36px;
+            font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-            text-align: center;
-            min-width: 200px;
-            border: 2px solid #fcbad3;
-            letter-spacing: 1.2px;
-            text-decoration: none;
+            box-shadow: 0 2px 12px #ffd6a0;
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+            outline: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .category-card:hover, .category-card.active {
-            background: linear-gradient(135deg, #fcbad3 0%, #ffd6e0 100%);
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 8px 32px #fcbad3;
+        .header-btn:hover {
+            background: linear-gradient(90deg, #ff6f3c 0%, #ffb347 100%);
             color: #fff;
-            border-color: #b3477a;
+            transform: translateY(-2px) scale(1.05);
         }
-        .items-section {
-            display: none;
-            margin-top: 20px;
+        .cart-count {
+            background: #ff6f3c;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 10px;
+            font-size: 1.1rem;
+            margin-left: 8px;
+            font-weight: 700;
         }
-        .items-section.active {
-            display: block;
+        .menu-tabs-container {
+            max-width: 900px;
+            margin: 32px auto 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #ffe0c2;
+            padding: 32px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .items-grid {
+        .menu-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 32px;
             justify-content: center;
+            align-items: center;
+            gap: 28px 32px;
+            margin-bottom: 18px;
+            width: 100%;
         }
-        .info-text {
-            text-align: center;
-            color: #b3477a;
-            font-size: 1.25rem;
-            margin-top: 44px;
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+        body {
+            min-height: 100vh;
+            margin: 0;
             font-family: 'Montserrat', Arial, sans-serif;
-            letter-spacing: 1px;
+            background: #fff;
         }
-        .about-cafe {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 1.2rem;
-            color: #fff;
-            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+        .menu-section {
+            max-width: 600px;
+            margin: 40px auto;
+            font-family: 'Georgia', serif;
+            color: #222;
+        }
+        .menu-tabs-container {
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            background: #fff;
             border-radius: 18px;
-            padding: 28px 32px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 2px 12px #ffb6b9;
+            box-shadow: 0 4px 24px #ffe0c2;
+            padding: 24px 0 0 0;
         }
-        .about-cafe h3 {
-            font-family: 'Pacifico', cursive;
+        .menu-tabs {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            width: 100%;
+            overflow-x: auto;
+            padding: 0 8px;
+        }
+        .tab-btn {
+            background: linear-gradient(90deg, #ffb347 0%, #ff6f3c 100%);
             color: #fff;
-            font-size: 2rem;
-            margin-bottom: 12px;
+            border: none;
+            border-radius: 24px;
+            padding: 14px 36px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 12px #ffd6a0;
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+            outline: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .about-cafe p {
+        .tab-btn.active, .tab-btn:hover {
+            background: linear-gradient(90deg, #ff6f3c 0%, #ffb347 100%);
+            color: #fff;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 16px #ffb34799;
+        }
+        summary {
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 12px 0;
+        }
+        .pizza-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 12px 0 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .pizza-info {
+            flex: 1;
+        }
+        .pizza-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .pizza-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 2px;
+        }
+        .pizza-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ff6f3c;
+            margin-left: 18px;
+            min-width: 70px;
+            text-align: right;
+        }
+        .add-cart-btn {
+            background: #ff6f3c;
+            color: #fff;
+            border: none;
+            border-radius: 16px;
+            padding: 6px 18px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-left: 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .add-cart-btn:hover {
+            background: #ff9a3c;
+        }
+        .cart {
+            max-width: 600px;
+            margin: 32px auto 0 auto;
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 18px 24px;
+            box-shadow: 0 2px 8px #eee;
+        }
+        .cart-title {
+            font-size: 1.2rem;
+            font-weight: 700;
             margin-bottom: 10px;
         }
+        .cart-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .cart-empty {
+            color: #888;
+            font-size: 1rem;
+        }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categoryCards = document.querySelectorAll('.category-card');
-            const sections = document.querySelectorAll('.items-section');
-            categoryCards.forEach((card, idx) => {
-                card.addEventListener('click', function() {
-                    categoryCards.forEach(c => c.classList.remove('active'));
-                    sections.forEach(s => s.classList.remove('active'));
-                    card.classList.add('active');
-                    sections[idx].classList.add('active');
-                });
-            });
-            // Show first section by default
-            if (categoryCards.length && sections.length) {
-                categoryCards[0].classList.add('active');
-                sections[0].classList.add('active');
-            }
-        });
-    </script>
 </head>
 <body>
-    <div class="center-container">
-        <h2 class="highlight-title">Welcome to the Cafe SuChi!</h2>
-        <div class="menu-categories">
-            <a class="category-card" href="/pizzas.html">Pizzas</a>
-            <a class="category-card" href="/pasta.html">Pasta</a>
-            <a class="category-card" href="/burgers.html">Burgers</a>
-            <a class="category-card" href="/coffee.html">Coffee</a>
-            <a class="category-card" href="/thickshakes.html">Thickshakes</a>
-        </div>
-        <div style="text-align:center; margin-bottom:32px;">
-            <a href="/review.html" style="display:inline-block; margin-top:10px; background:linear-gradient(90deg,#ff512f 0%,#dd2476 100%); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:1.2rem; padding:14px 38px; border-radius:16px; box-shadow:0 2px 12px #fcbad3; text-decoration:none; letter-spacing:1px; transition:background 0.2s,transform 0.2s;">Read &amp; Write Reviews</a>
-        </div>
-        <div class="info-text">Click a section above to view the menu items!</div>
-        <div class="about-cafe">
-            <h3>About Cafe SuChi</h3>
-            <p>Cafe SuChi is your cozy neighborhood destination for delicious food and great vibes! We blend classic cafe favorites with a modern twist, offering everything from wood-fired pizzas and creamy pastas to gourmet burgers, aromatic coffees, and indulgent thickshakes. Our warm, inviting atmosphere is perfect for relaxing with friends, studying, or enjoying a family meal. Every dish is crafted with love and the freshest ingredients. Come experience the taste and comfort of Cafe SuChi!</p>
-        </div>
+    <div class="header-bar">
+      <span class="logo-title">Cafe<br>SuChi</span>
+      <div class="header-right">
+        <button class="header-btn" onclick="window.location.href='/cart.html'">🛒 Cart <span id="cartCount" class="cart-count">0</span></button>
+        <button class="header-btn" onclick="window.location.href='/logout.html'">Logout</button>
+      </div>
     </div>
+    <h1 style="font-size:2.5rem; font-family:'Montserrat',Arial,sans-serif; font-weight:700; text-align:center; margin-top:18px; letter-spacing:1px; color:#ff6f3c;">Welcome! Let’s make today tastier.</h1>
+    <div class="menu-tabs-container">
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="showMenuSection('pizza')">🍕 Pizza</button>
+        <button class="tab-btn" onclick="showMenuSection('pasta')">🍝 Pasta</button>
+        <button class="tab-btn" onclick="showMenuSection('burger')">🍔 Burger</button>
+        <button class="tab-btn" onclick="showMenuSection('rice')">🍚 Rice Bowls</button>
+        <button class="tab-btn" onclick="showMenuSection('dessert')">🍰 Desserts</button>
+        <button class="tab-btn" onclick="showMenuSection('coffee')">☕ Coffee</button>
+        <button class="tab-btn" onclick="showMenuSection('thickshake')">🥤 Thickshakes</button>
+      </div>
+      </div>
+      <div id="pizza" class="menu-section menu-content active">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:18px; color:#ff6f3c;">Pizzas</h2>
+        <details class="menu-dropdown" open>
+          <summary>Vegetarian Pizzas</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Margherita</div><div class="pizza-desc">Classic tomato sauce, mozzarella, and fresh basil.</div></div><div class="pizza-price">₹180</div><button class="add-cart-btn" onclick="addToCart('Margherita',180)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Farmhouse</div><div class="pizza-desc">Onion, capsicum, tomato, and mushroom.</div></div><div class="pizza-price">₹230</div><button class="add-cart-btn" onclick="addToCart('Farmhouse',230)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Veggie Supreme</div><div class="pizza-desc">Bell peppers, olives, onions, sweet corn, and jalapeños.</div></div><div class="pizza-price">₹260</div><button class="add-cart-btn" onclick="addToCart('Veggie Supreme',260)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Paneer Tikka Pizza</div><div class="pizza-desc">Spicy paneer tikka, onions, and capsicum.</div></div><div class="pizza-price">₹300</div><button class="add-cart-btn" onclick="addToCart('Paneer Tikka Pizza',300)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Mexican Green Wave</div><div class="pizza-desc">Onion, capsicum, jalapeños, and Mexican herbs.</div></div><div class="pizza-price">₹280</div><button class="add-cart-btn" onclick="addToCart('Mexican Green Wave',280)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Cheese Burst Pizza</div><div class="pizza-desc">Extra cheese with a creamy, cheesy base.</div></div><div class="pizza-price">₹270</div><button class="add-cart-btn" onclick="addToCart('Cheese Burst Pizza',270)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Spinach & Corn Pizza</div><div class="pizza-desc">Creamy spinach, sweet corn, and cheese.</div></div><div class="pizza-price">₹250</div><button class="add-cart-btn" onclick="addToCart('Spinach & Corn Pizza',250)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Four Cheese Pizza</div><div class="pizza-desc">A blend of mozzarella, cheddar, parmesan, and gouda.</div></div><div class="pizza-price">₹320</div><button class="add-cart-btn" onclick="addToCart('Four Cheese Pizza',320)">Add to Cart</button></div>
+        </details>
+        <details class="menu-dropdown">
+          <summary>Non-Vegetarian Pizzas</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">BBQ Chicken Pizza</div><div class="pizza-desc">Grilled chicken, BBQ sauce, and onions.</div></div><div class="pizza-price">₹330</div><button class="add-cart-btn" onclick="addToCart('BBQ Chicken Pizza',330)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Chicken Tikka Pizza</div><div class="pizza-desc">Spicy Indian-style chicken tikka and veggies.</div></div><div class="pizza-price">₹350</div><button class="add-cart-btn" onclick="addToCart('Chicken Tikka Pizza',350)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Chicken Supreme</div><div class="pizza-desc">Chicken, pepperoni, sausage, and mushrooms.</div></div><div class="pizza-price">₹340</div><button class="add-cart-btn" onclick="addToCart('Chicken Supreme',340)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Meat Lovers Pizza</div><div class="pizza-desc">Pepperoni, sausage, prawn and chicken.</div></div><div class="pizza-price">₹370</div><button class="add-cart-btn" onclick="addToCart('Meat Lovers Pizza',370)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Spicy Chicken Delight</div><div class="pizza-desc">Chicken chunks, jalapeños, onions, and red chili flakes.</div></div><div class="pizza-price">₹360</div><button class="add-cart-btn" onclick="addToCart('Spicy Chicken Delight',360)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Prawn Pizza</div><div class="pizza-desc">Marinated prawns, olives, garlic, and cheese.</div></div><div class="pizza-price">₹400</div><button class="add-cart-btn" onclick="addToCart('Prawn Pizza',400)">Add to Cart</button></div>
+        </details>
+      </div>
+      <div id="pasta" class="menu-section menu-content" style="display:none">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:18px; color:#ff6f3c;">Pasta</h2>
+        <details class="menu-dropdown" open>
+          <summary>🌱 Vegetarian Pasta</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Classic Alfredo Pasta</div><div class="pizza-desc">Creamy white sauce with herbs and cheese.</div></div><div class="pizza-price">₹250</div><button class="add-cart-btn" onclick="addToCart('Classic Alfredo Pasta',250)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Arrabiata Pasta</div><div class="pizza-desc">Spicy red sauce with garlic and chili flakes.</div></div><div class="pizza-price">₹230</div><button class="add-cart-btn" onclick="addToCart('Arrabiata Pasta',230)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Cheesy Veggie Pasta</div><div class="pizza-desc">Mixed bell peppers, corn, olives, and cheese.</div></div><div class="pizza-price">₹270</div><button class="add-cart-btn" onclick="addToCart('Cheesy Veggie Pasta',270)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Spinach & Mushroom Pasta</div><div class="pizza-desc">Rich creamy spinach with sautéed mushrooms.</div></div><div class="pizza-price">₹290</div><button class="add-cart-btn" onclick="addToCart('Spinach & Mushroom Pasta',290)">Add to Cart</button></div>
+        </details>
+        <details class="menu-dropdown">
+          <summary>🍗 Non-Vegetarian Pasta</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Chicken Alfredo Pasta</div><div class="pizza-desc">Creamy white sauce with grilled chicken.</div></div><div class="pizza-price">₹300</div><button class="add-cart-btn" onclick="addToCart('Chicken Alfredo Pasta',300)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Spicy Chicken Arrabiata</div><div class="pizza-desc">Tangy tomato sauce with chili and chicken chunks.</div></div><div class="pizza-price">₹280</div><button class="add-cart-btn" onclick="addToCart('Spicy Chicken Arrabiata',280)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">BBQ Chicken Pasta</div><div class="pizza-desc">Pasta tossed in BBQ sauce with chicken bits.</div></div><div class="pizza-price">₹320</div><button class="add-cart-btn" onclick="addToCart('BBQ Chicken Pasta',320)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Prawn Garlic Pasta</div><div class="pizza-desc">Juicy prawns, garlic butter, and herbs.</div></div><div class="pizza-price">₹350</div><button class="add-cart-btn" onclick="addToCart('Prawn Garlic Pasta',350)">Add to Cart</button></div>
+        </details>
+      </div>
+      <div id="burger" class="menu-section menu-content" style="display:none">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:18px; color:#ff6f3c;">Burgers</h2>
+        <details class="menu-dropdown" open>
+          <summary>🌱 Vegetarian Burgers</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Classic Veg Burger</div><div class="pizza-desc">Crispy patty, lettuce, and cheese.</div></div><div class="pizza-price">₹200</div><button class="add-cart-btn" onclick="addToCart('Classic Veg Burger',200)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Paneer Tikka Burger</div><div class="pizza-desc">Grilled paneer with Indian spices.</div></div><div class="pizza-price">₹240</div><button class="add-cart-btn" onclick="addToCart('Paneer Tikka Burger',240)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Cheese Burst Veg Burger</div><div class="pizza-desc">Double cheese with veggie patty.</div></div><div class="pizza-price">₹260</div><button class="add-cart-btn" onclick="addToCart('Cheese Burst Veg Burger',260)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Mexican Bean Burger</div><div class="pizza-desc">Spicy bean patty, jalapeños, salsa.</div></div><div class="pizza-price">₹270</div><button class="add-cart-btn" onclick="addToCart('Mexican Bean Burger',270)">Add to Cart</button></div>
+        </details>
+        <details class="menu-dropdown">
+          <summary>🍗 Non-Vegetarian Burgers</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Classic Chicken Burger</div><div class="pizza-desc">Crispy chicken with lettuce and mayo.</div></div><div class="pizza-price">₹250</div><button class="add-cart-btn" onclick="addToCart('Classic Chicken Burger',250)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Chicken Tikka Burger</div><div class="pizza-desc">Spiced chicken, onion, mint mayo.</div></div><div class="pizza-price">₹280</div><button class="add-cart-btn" onclick="addToCart('Chicken Tikka Burger',280)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Double Chicken Cheese Burger</div><div class="pizza-desc">Two patties, extra cheese.</div></div><div class="pizza-price">₹320</div><button class="add-cart-btn" onclick="addToCart('Double Chicken Cheese Burger',320)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">BBQ Chicken Burger</div><div class="pizza-desc">Grilled chicken, BBQ sauce, cheddar.</div></div><div class="pizza-price">₹290</div><button class="add-cart-btn" onclick="addToCart('BBQ Chicken Burger',290)">Add to Cart</button></div>
+        </details>
+      </div>
+      <div id="rice" class="menu-section menu-content" style="display:none">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:18px; color:#ff6f3c;">Rice Bowls</h2>
+        <details class="menu-dropdown" open>
+          <summary>🌱 Vegetarian Rice Bowls</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Paneer Butter Masala Rice Bowl</div><div class="pizza-desc">Creamy paneer curry over basmati rice.</div></div><div class="pizza-price">₹270</div><button class="add-cart-btn" onclick="addToCart('Paneer Butter Masala Rice Bowl',270)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Thai Green Curry Veg Rice Bowl</div><div class="pizza-desc">Coconut-based curry with veggies.</div></div><div class="pizza-price">₹300</div><button class="add-cart-btn" onclick="addToCart('Thai Green Curry Veg Rice Bowl',300)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Mexican Veg Rice Bowl</div><div class="pizza-desc">Beans, salsa, corn, and cheesy rice.</div></div><div class="pizza-price">₹280</div><button class="add-cart-btn" onclick="addToCart('Mexican Veg Rice Bowl',280)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Teriyaki Veg Rice Bowl</div><div class="pizza-desc">Veggies in sweet-savory sauce over rice.</div></div><div class="pizza-price">₹260</div><button class="add-cart-btn" onclick="addToCart('Teriyaki Veg Rice Bowl',260)">Add to Cart</button></div>
+        </details>
+        <details class="menu-dropdown">
+          <summary>🍗 Non-Vegetarian Rice Bowls</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Chicken Tikka Masala Rice Bowl</div><div class="pizza-desc">Smoky chicken with butter masala and rice.</div></div><div class="pizza-price">₹320</div><button class="add-cart-btn" onclick="addToCart('Chicken Tikka Masala Rice Bowl',320)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Thai Green Curry Chicken Bowl</div><div class="pizza-desc">Tender chicken with Thai curry.</div></div><div class="pizza-price">₹330</div><button class="add-cart-btn" onclick="addToCart('Thai Green Curry Chicken Bowl',330)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">BBQ Chicken Rice Bowl</div><div class="pizza-desc">Grilled chicken in BBQ sauce over herb rice.</div></div><div class="pizza-price">₹300</div><button class="add-cart-btn" onclick="addToCart('BBQ Chicken Rice Bowl',300)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Egg & Chicken Fried Rice Bowl</div><div class="pizza-desc">Indo-Chinese style.</div></div><div class="pizza-price">₹270</div><button class="add-cart-btn" onclick="addToCart('Egg & Chicken Fried Rice Bowl',270)">Add to Cart</button></div>
+        </details>
+      </div>
+      <div id="dessert" class="menu-section menu-content" style="display:none">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:18px; color:#ff6f3c;">Desserts</h2>
+        <details class="menu-dropdown" open>
+          <summary>Sweet Treats</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Chocolate Lava Cake</div><div class="pizza-desc">Warm cake with molten center.</div></div><div class="pizza-price">₹200</div><button class="add-cart-btn" onclick="addToCart('Chocolate Lava Cake',200)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Classic Brownie with Ice Cream</div><div class="pizza-desc">Fudgy brownie, vanilla scoop.</div></div><div class="pizza-price">₹250</div><button class="add-cart-btn" onclick="addToCart('Classic Brownie with Ice Cream',250)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Tiramisu Cup</div><div class="pizza-desc">Coffee-flavored creamy dessert.</div></div><div class="pizza-price">₹280</div><button class="add-cart-btn" onclick="addToCart('Tiramisu Cup',280)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Nutella Waffle</div><div class="pizza-desc">Belgian waffle topped with Nutella and nuts.</div></div><div class="pizza-price">₹290</div><button class="add-cart-btn" onclick="addToCart('Nutella Waffle',290)">Add to Cart</button></div>
+        </details>
+      </div>
+      <div id="coffee" class="menu-section menu-content" style="display:none">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:18px; color:#ff6f3c;">Coffee</h2>
+        <details class="menu-dropdown" open>
+          <summary>Coffee Selection</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Espresso</div><div class="pizza-desc">Single/double shot.</div></div><div class="pizza-price">₹200 / ₹250</div><button class="add-cart-btn" onclick="addToCart('Espresso',200)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Cappuccino</div><div class="pizza-desc">Frothy and smooth.</div></div><div class="pizza-price">₹220</div><button class="add-cart-btn" onclick="addToCart('Cappuccino',220)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Cafe Mocha</div><div class="pizza-desc">Coffee with chocolate.</div></div><div class="pizza-price">₹240</div><button class="add-cart-btn" onclick="addToCart('Cafe Mocha',240)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Cold Coffee</div><div class="pizza-desc">Chilled coffee with ice cream.</div></div><div class="pizza-price">₹260</div><button class="add-cart-btn" onclick="addToCart('Cold Coffee',260)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Hazelnut/Ice Latte</div><div class="pizza-desc">Flavored chill or hot.</div></div><div class="pizza-price">₹280</div><button class="add-cart-btn" onclick="addToCart('Hazelnut/Ice Latte',280)">Add to Cart</button></div>
+        </details>
+      </div>
+      <div id="thickshake" class="menu-section menu-content" style="display:none">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:18px; color:#ff6f3c;">Thickshakes</h2>
+        <details class="menu-dropdown" open>
+          <summary>Flavours</summary>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Chocolate Oreo Thickshake</div><div class="pizza-desc">Rich and creamy.</div></div><div class="pizza-price">₹250</div><button class="add-cart-btn" onclick="addToCart('Chocolate Oreo Thickshake',250)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Strawberry Cheesecake Shake</div><div class="pizza-desc">Sweet and fruity.</div></div><div class="pizza-price">₹270</div><button class="add-cart-btn" onclick="addToCart('Strawberry Cheesecake Shake',270)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Nutella Banana Shake</div><div class="pizza-desc">Perfect blend of chocolate and banana.</div></div><div class="pizza-price">₹280</div><button class="add-cart-btn" onclick="addToCart('Nutella Banana Shake',280)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">KitKat Crunch Shake</div><div class="pizza-desc">Chocolate shake with KitKat.</div></div><div class="pizza-price">₹290</div><button class="add-cart-btn" onclick="addToCart('KitKat Crunch Shake',290)">Add to Cart</button></div>
+          <div class="pizza-item"><div class="pizza-info"><div class="pizza-name">Coffee Caramel Shake</div><div class="pizza-desc">Cold brew thickshake with caramel swirl.</div></div><div class="pizza-price">₹300</div><button class="add-cart-btn" onclick="addToCart('Coffee Caramel Shake',300)">Add to Cart</button></div>
+        </details>
+      </div>
+    </div>
+    <div class="cart" id="cartSection">
+    <!-- Cart section removed, now on separate page -->
+    <script>
+        // Cart logic using localStorage for persistence
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+        function addToCart(name, price) {
+            const found = cart.find(item => item.name === name);
+            if (found) {
+                found.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            saveCart();
+            renderAddBtns();
+        }
+        function removeFromCart(name) {
+            const idx = cart.findIndex(item => item.name === name);
+            if (idx !== -1) {
+                if (cart[idx].qty > 1) {
+                    cart[idx].qty -= 1;
+                } else {
+                    cart.splice(idx, 1);
+                }
+            }
+            saveCart();
+            renderAddBtns();
+        }
+        function getCartQty(name) {
+            const found = cart.find(item => item.name === name);
+            return found ? found.qty : 0;
+        }
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            const el = document.getElementById('cartCount');
+            if (el) el.textContent = count;
+        }
+        function renderAddBtns() {
+            document.querySelectorAll('.pizza-item').forEach(itemDiv => {
+                const name = itemDiv.querySelector('.pizza-name').textContent;
+                const btn = itemDiv.querySelector('.add-cart-btn');
+                const qty = getCartQty(name);
+                if (qty > 0) {
+                    btn.outerHTML = `<div class="cart-btn-group"><button class="qty-btn" onclick="removeFromCart('${name}')">-</button><span class="qty-num">${qty}</span><button class="qty-btn" onclick="addToCart('${name}',${itemDiv.querySelector('.pizza-price').textContent.replace(/[^\d]/g,'')})">+</button></div>`;
+                } else {
+                    btn.outerHTML = `<button class="add-cart-btn" onclick="addToCart('${name}',${itemDiv.querySelector('.pizza-price').textContent.replace(/[^\d]/g,'')})">Add to Cart</button>`;
+                }
+            });
+        }
+        function showMenuSection(section) {
+            document.querySelectorAll('.menu-content').forEach(sec => {
+                sec.style.display = 'none';
+                sec.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const sec = document.getElementById(section);
+            if (sec) {
+                sec.style.display = '';
+                sec.classList.add('active');
+            }
+            const tabOrder = ['pizza','pasta','burger','rice','dessert','coffee','thickshake'];
+            const idx = tabOrder.indexOf(section);
+            if (idx !== -1) {
+                document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+            }
+            setTimeout(renderAddBtns, 10);
+        }
+        // Style for cart btn group
+        const style = document.createElement('style');
+        style.innerHTML = `.cart-btn-group{display:flex;align-items:center;gap:8px;}.qty-btn{background:#ff6f3c;color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1.2rem;font-weight:700;cursor:pointer;transition:background 0.2s;}.qty-btn:hover{background:#ff9a3c;}.qty-num{font-size:1.1rem;font-weight:700;min-width:24px;text-align:center;}`;
+        document.head.appendChild(style);
+        updateCartCount();
+        renderAddBtns();
+    </script>
 </body>
 </html>
